@@ -1,3 +1,10 @@
+beforeEach(function() {
+  expect.spyOn(console, 'log')
+})
+
+afterEach(function() {
+  expect.restoreSpies()
+})
 describe('index', () => {
   const code = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65]
 
@@ -23,7 +30,7 @@ describe('index', () => {
     it('triggers an alert if the right code is entered', () => {
       init()
 
-      window.alert = expect.createSpy()
+      expect.spyOn(window, 'alert')
 
       for (let i = 0, l = code.length; i < l; i++) {
         triggerKeyDown(code[i])
@@ -35,7 +42,7 @@ describe('index', () => {
     it('does not trigger an alert if the wrong code is entered', () => {
       init()
 
-      window.alert = expect.createSpy()
+      expect.spyOn(window, 'alert')
 
       for (let i = 0, l = code.length; i < l; i++) {
         triggerKeyDown(i)
