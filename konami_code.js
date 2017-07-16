@@ -6,11 +6,9 @@ function init() {
   const input = document.querySelector('body')
   input.addEventListener('keydown', function(e) {
     const key = parseInt(e.detail || e.which);
-    console.log(key);
     if (key == code[index]) {
       index ++;
       e.preventDefault()
-
       if (index === code.length - 1) {
         alert("boo");
         index = 0;
