@@ -9,8 +9,9 @@ function init() {
 var idx = 0;
 
 function onKeyDownHandler(e) {
+  const key = parseInt(e.which || e.detail);
 
-  if (parseInt(event.which) === code[idx]){
+  if (key === code[idx]){
     idx++;
 
      if (idx === code.length) {
