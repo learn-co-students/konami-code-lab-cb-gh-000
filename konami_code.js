@@ -11,6 +11,21 @@ const codes = [
   "a"
 ];
 
+var index = 0;
+
+function konamicode(e) {
+    if (e.which === code[index]) {
+        index++;
+
+        if (index === code.length){
+            alert('You did it!!');
+            index = 0;
+        }
+    } else {
+        index = 0;
+    }
+}
+
 function init() {
-  // your code here
+  document.body.addEventListener('keydown', konamicode)
 }
